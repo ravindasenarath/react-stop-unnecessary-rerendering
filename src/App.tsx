@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import './App.css';
 import { FlexRow } from './styles/layout';
 import { Todos } from './Todos';
@@ -13,9 +13,9 @@ const App = () => {
     setCount(previousCount => previousCount +1)
   }
 
-  const handleAddToDo = (text: string) => {
+  const handleAddToDo = useCallback((text: string) => {
     setTodos(todos => [...todos, {description: text || 'Default Todo', createdAt: Date.now()}])
-  }
+  }, [])
 
 
   return (
