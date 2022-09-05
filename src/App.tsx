@@ -28,7 +28,7 @@ const App = () => {
     return num;
   };
 
-  const expensiveValue = expensiveCalculation(count);
+  const expensiveValue = useMemo(() => expensiveCalculation(count), [count]);
 
   const handleButtonClick = () => {
     setCount(previousCount => previousCount +1)
